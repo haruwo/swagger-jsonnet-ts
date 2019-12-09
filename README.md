@@ -1,7 +1,6 @@
 # `Swagger sample` Written by [Jsonnet](https://jsonnet.org/) and TypeScript
 
-* [Swagger UI](http://haruwo.github.io/swagger-jsonnet-ts)
-* [Redoc](http://haruwo.github.io/swagger-jsonnet-ts/redoc-static.html)
+* [Swagger UI](http://haruwo.github.io/swagger-jsonnet-ts/)
 * [![CircleCI](https://circleci.com/gh/haruwo/swagger-jsonnet-ts.svg?style=svg)](https://circleci.com/gh/haruwo/swagger-jsonnet-ts)
 
 ### build
