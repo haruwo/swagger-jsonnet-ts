@@ -1,0 +1,58 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: haruwo/ciecleci-swagger-jsonnet-e2e:latest
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - node-v2-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            - node-v2-{{ .Branch }}-
+            - node-v2-
+      - restore_cache:
+          keys:
+            - cypress-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            - cypress-v1-{{ .Branch }}-
+            - cypress-v1-
+      - run: npm install
+      - run: npm run build
+      - run: npm run lint
+      - run: npm run test
+      - run: npm run redoc:bundle
+      - save_cache:
+          paths:
+            - node_modules
+          key: node-v2-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      - save_cache:
+          paths:
+            - /root/.cache/Cypress
+          key: cypress-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      - store_artifacts:
+          path: docs
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+
+  deploy:
+    docker:
+      - image: circleci/python
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Push docs
+          command: ./scripts/deploy.bash
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master

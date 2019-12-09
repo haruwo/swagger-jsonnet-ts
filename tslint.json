@@ -1,0 +1,6 @@
+{
+  "extends": ["tslint-microsoft-contrib/recommended"],
+  "rules": {
+    "indent": [true, "spaces", 4]
+  }
+}

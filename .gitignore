@@ -1,9 +1,6 @@
-/dist/.swagger-codegen-ignore
-/dist/.swagger-codegen/
-/dist/README.md
-/dist/swagger.json
-/dist/openapi.json
-/dist/redoc-static.html
+/docs/.swagger-codegen-ignore
+/docs/.swagger-codegen/
+/docs/README.md
 /build/
 node_modules
 .tmp

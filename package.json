@@ -1,0 +1,36 @@
+{
+  "name": "swagger-jsonnet-ts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "mkdir -p build && npm run build-definitions && npm run build-openapi && cp -f build/openapi.json docs/openapi.json",
+    "build-openapi": "jsonnet src/openapi.jsonnet -o build/openapi.json --jpath src",
+    "build-definitions": "typescript-json-schema --validationKeywords example --topRef --titles --required --excludePrivate src/definitions.ts '*' | node ./scripts/extract_definitions.js > build/schemas.json",
+    "lint": "spectral lint build/openapi.json || spectral lint build/openapi.json --format json",
+    "start": "prism mock build/openapi.json",
+    "cy:run": "CYPRESS_baseUrl=http://127.0.0.1:4010 CYPRESS_swaggerFile=build/openapi.json cypress run",
+    "test": "start-server-and-test start http://127.0.0.1:4010/health cy:run",
+    "redoc:bundle": "redoc-cli bundle build/openapi.json -o docs/redoc-static.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cypress/webpack-preprocessor": "^4.1.1",
+    "@jc21/cypress-swagger-validation": "0.0.5",
+    "@stoplight/prism-cli": "^3.2.1",
+    "@stoplight/spectral": "^4.2.0",
+    "@types/json-schema": "^7.0.3",
+    "@types/node": "^10.16.3",
+    "@types/uuid": "^3.4.6",
+    "cypress": "^3.7.0",
+    "redoc-cli": "^0.9.2",
+    "start-server-and-test": "^1.10.6",
+    "ts-loader": "^6.2.1",
+    "tslint": "^5.20.1",
+    "tslint-microsoft-contrib": "^6.2.0",
+    "typescript": "^3.7.2",
+    "typescript-json-schema": "^0.40.0",
+    "uuid": "^3.3.3",
+    "webpack": "^4.41.2"
+  }
+}
