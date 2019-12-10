@@ -21,7 +21,6 @@
                "email",
                "nickname"
             ],
-            "title": "Account",
             "type": "object"
          },
          "InternalServerError": {
@@ -48,7 +47,6 @@
             "required": [
                "errors"
             ],
-            "title": "InternalServerError",
             "type": "object"
          },
          "RefreshTokenRequest": {
@@ -63,7 +61,6 @@
             "required": [
                "refresh_token"
             ],
-            "title": "RefreshTokenRequest",
             "type": "object"
          },
          "SigninRequest": {
@@ -84,7 +81,6 @@
                "email",
                "password"
             ],
-            "title": "SigninRequest",
             "type": "object"
          },
          "SignupRequest": {
@@ -112,7 +108,6 @@
                "nickname",
                "password"
             ],
-            "title": "SignupRequest",
             "type": "object"
          },
          "Token": {
@@ -141,7 +136,6 @@
                "refresh_token",
                "type"
             ],
-            "title": "Token",
             "type": "object"
          },
          "UpdateAccount": {
@@ -168,7 +162,6 @@
                "email",
                "nickname"
             ],
-            "title": "UpdateAccount",
             "type": "object"
          },
          "ValidationError": {
@@ -200,7 +193,6 @@
             "required": [
                "errors"
             ],
-            "title": "ValidationError",
             "type": "object"
          }
       },
