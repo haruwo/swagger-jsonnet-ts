@@ -5,7 +5,7 @@
   "scripts": {
     "build": "mkdir -p build && npm run build-definitions && npm run build-openapi && cp -f build/openapi.json docs/openapi.json",
     "build-openapi": "jsonnet src/openapi.jsonnet -o build/openapi.json --jpath src",
-    "build-definitions": "typescript-json-schema --validationKeywords example --topRef --titles --required --excludePrivate src/definitions.ts '*' | node ./scripts/extract_definitions.js > build/schemas.json",
+    "build-definitions": "typescript-json-schema --validationKeywords example --refs=false --titles --required --excludePrivate src/definitions.ts '*' | node ./scripts/extract_definitions.js > build/schemas.json",
     "lint": "spectral lint build/openapi.json || spectral lint build/openapi.json --format json",
     "start": "prism mock build/openapi.json",
     "cy:run": "CYPRESS_baseUrl=http://127.0.0.1:4010 CYPRESS_swaggerFile=build/openapi.json cypress run",
