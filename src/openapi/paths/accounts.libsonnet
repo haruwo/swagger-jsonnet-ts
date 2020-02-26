@@ -1,18 +1,18 @@
-local commonHeaders = import 'common_headers.libsonnet';
+local headers = import 'headers.libsonnet';
 
-local commonResponses = import 'common_responses.libsonnet';
+local responses = import 'responses.libsonnet';
 
 {
-  me: {
+  '/me': {
     get: {
       operationId: 'account.get',
       security: [{ bearerAuth: [] }],
       tags: ['account'],
       description: 'Get account info',
-      responses: commonResponses {
+      responses: responses.commons {
         '200': {
           description: 'Account info',
-          headers: commonHeaders,
+          headers: headers.commons,
           content: { 'application/json': { schema: { '$ref': '#/components/schemas/Account' } } },
         },
       },
@@ -27,26 +27,26 @@ local commonResponses = import 'common_responses.libsonnet';
         required: true,
         content: { 'application/json': { schema: { '$ref': '#/components/schemas/UpdateAccount' } } },
       },
-      responses: commonResponses {
+      responses: responses.commons {
         '200': {
           description: 'Account info',
-          headers: commonHeaders,
+          headers: headers.commons,
           content: { 'application/json': { schema: { '$ref': '#/components/schemas/Account' } } },
         },
       },
     },
   },
 
-  signout: {
+  '/me/signout': {
     post: {
       operationId: 'account.signout',
       security: [{ bearerAuth: [] }],
       tags: ['account', 'auth'],
       description: 'Sign-out all sessions',
-      responses: commonResponses {
+      responses: responses.commons {
         '204': {
           description: 'No Content',
-          headers: commonHeaders,
+          headers: headers.commons,
         },
       },
     },

@@ -1,9 +1,10 @@
+/// <reference path="../support/index.ts" />
 import * as uuid from 'uuid'
 
 describe("signup / signin", () => {
     before(function() {
         this.credential = {
-            email: `${uuid.v4()}@fqdn`,
+            email: `${uuid.v4()}@example.local`,
             password: uuid.v4()
         };
     });

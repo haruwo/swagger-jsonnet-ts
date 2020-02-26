@@ -1,9 +1,9 @@
-local commonHeaders = import 'common_headers.libsonnet';
+local headers = import 'headers.libsonnet';
 
-local commonResponses = import 'common_responses.libsonnet';
+local responses = import 'responses.libsonnet';
 
 {
-  signin: {
+  '/signin': {
     post: {
       operationId: 'auth.signin',
       tags: ['auth'],
@@ -12,10 +12,10 @@ local commonResponses = import 'common_responses.libsonnet';
         required: true,
         content: { 'application/json': { schema: { '$ref': '#/components/schemas/SigninRequest' } } },
       },
-      responses: commonResponses {
+      responses: responses.commons {
         '201': {
           description: 'Sing-in was succeeded.',
-          headers: commonHeaders {
+          headers: headers.commons {
             Location: {
               schema: { type: 'string' },
               description: "Always '/account'",
@@ -27,7 +27,7 @@ local commonResponses = import 'common_responses.libsonnet';
     },
   },
 
-  signup: {
+  '/signup': {
     post: {
       operationId: 'auth.signup',
       tags: ['auth'],
@@ -36,10 +36,10 @@ local commonResponses = import 'common_responses.libsonnet';
         required: true,
         content: { 'application/json': { schema: { '$ref': '#/components/schemas/SignupRequest' } } },
       },
-      responses: commonResponses {
+      responses: responses.commons {
         '201': {
           description: 'Registered new account',
-          headers: commonHeaders {
+          headers: headers.commons {
             Location: {
               schema: { type: 'string' },
               description: "Always '/account'",
@@ -51,7 +51,7 @@ local commonResponses = import 'common_responses.libsonnet';
     },
   },
 
-  token: {
+  '/token': {
     post: {
       operationId: 'auth.token',
       tags: ['auth'],
@@ -60,10 +60,10 @@ local commonResponses = import 'common_responses.libsonnet';
         required: true,
         content: { 'application/json': { schema: { '$ref': '#/components/schemas/RefreshTokenRequest' } } },
       },
-      responses: commonResponses {
+      responses: responses.commons {
         '201': {
           description: 'Refresh tokens was succeeded.',
-          headers: commonHeaders {
+          headers: headers.commons {
             Location: {
               schema: { type: 'string' },
               description: "Always '/account'",

@@ -2,11 +2,11 @@
    "components": {
       "schemas": {
          "Account": {
-            "description": "Account",
+            "description": "Accounttypescript-json-schema",
             "properties": {
                "email": {
                   "description": "Email",
-                  "example": "xxxx@github.com",
+                  "example": "abc@example.local",
                   "title": "email",
                   "type": "string"
                },
@@ -22,6 +22,302 @@
                "nickname"
             ],
             "type": "object"
+         },
+         "Accounts": {
+            "properties": {
+               "items": {
+                  "description": "Chunk",
+                  "items": {
+                     "description": "Accounttypescript-json-schema",
+                     "properties": {
+                        "email": {
+                           "description": "Email",
+                           "example": "abc@example.local",
+                           "title": "email",
+                           "type": "string"
+                        },
+                        "nickname": {
+                           "description": "Nickname",
+                           "example": "mekuru_chan",
+                           "title": "nickname",
+                           "type": "string"
+                        }
+                     },
+                     "required": [
+                        "email",
+                        "nickname"
+                     ],
+                     "type": "object"
+                  },
+                  "title": "items",
+                  "type": "array"
+               },
+               "pageInfo": {
+                  "description": "ページング情報",
+                  "properties": {
+                     "hasNextPage": {
+                        "description": "次ページが存在するか",
+                        "example": false,
+                        "title": "hasNextPage",
+                        "type": "boolean"
+                     },
+                     "nextCursor": {
+                        "description": "次ページ取得時に使う値",
+                        "example": null,
+                        "title": "nextCursor",
+                        "type": "string"
+                     }
+                  },
+                  "required": [
+                     "hasNextPage"
+                  ],
+                  "title": "pageInfo",
+                  "type": "object"
+               },
+               "totalCount": {
+                  "description": "総件数",
+                  "example": 1,
+                  "title": "totalCount",
+                  "type": "number"
+               }
+            },
+            "required": [
+               "items",
+               "pageInfo",
+               "totalCount"
+            ],
+            "type": "object"
+         },
+         "Cart": {
+            "properties": {
+               "id": {
+                  "description": "ID",
+                  "example": ": \"xxxxxxxxxxx\"",
+                  "title": "id",
+                  "type": "string"
+               }
+            },
+            "required": [
+               "id"
+            ],
+            "type": "object"
+         },
+         "CartItem": {
+            "properties": {
+               "count": {
+                  "description": "購入数",
+                  "example": 1,
+                  "minimum": 1,
+                  "title": "count",
+                  "type": "number"
+               },
+               "itemID": {
+                  "description": "Item ID",
+                  "example": ": \"B00H6V3BWA\"",
+                  "title": "itemID",
+                  "type": "string"
+               }
+            },
+            "required": [
+               "count",
+               "itemID"
+            ],
+            "type": "object"
+         },
+         "CartItems": {
+            "properties": {
+               "items": {
+                  "description": "Chunk",
+                  "items": {
+                     "properties": {
+                        "count": {
+                           "description": "購入数",
+                           "example": 1,
+                           "minimum": 1,
+                           "title": "count",
+                           "type": "number"
+                        },
+                        "itemID": {
+                           "description": "Item ID",
+                           "example": ": \"B00H6V3BWA\"",
+                           "title": "itemID",
+                           "type": "string"
+                        }
+                     },
+                     "required": [
+                        "count",
+                        "itemID"
+                     ],
+                     "type": "object"
+                  },
+                  "title": "items",
+                  "type": "array"
+               },
+               "pageInfo": {
+                  "description": "ページング情報",
+                  "properties": {
+                     "hasNextPage": {
+                        "description": "次ページが存在するか",
+                        "example": false,
+                        "title": "hasNextPage",
+                        "type": "boolean"
+                     },
+                     "nextCursor": {
+                        "description": "次ページ取得時に使う値",
+                        "example": null,
+                        "title": "nextCursor",
+                        "type": "string"
+                     }
+                  },
+                  "required": [
+                     "hasNextPage"
+                  ],
+                  "title": "pageInfo",
+                  "type": "object"
+               },
+               "totalCount": {
+                  "description": "総件数",
+                  "example": 1,
+                  "title": "totalCount",
+                  "type": "number"
+               }
+            },
+            "required": [
+               "items",
+               "pageInfo",
+               "totalCount"
+            ],
+            "type": "object"
+         },
+         "CreateAccount": {
+            "properties": {
+               "email": {
+                  "description": "Email",
+                  "example": "abc@example.local",
+                  "title": "email",
+                  "type": "string"
+               },
+               "nickname": {
+                  "description": "Nickname",
+                  "example": "mekuru_chan",
+                  "title": "nickname",
+                  "type": "string"
+               },
+               "password": {
+                  "description": "Password as plain text",
+                  "title": "password",
+                  "type": "string"
+               }
+            },
+            "required": [
+               "email",
+               "nickname",
+               "password"
+            ],
+            "type": "object"
+         },
+         "CreateCartItem": {
+            "properties": {
+               "count": {
+                  "description": "購入数",
+                  "example": 1,
+                  "minimum": 1,
+                  "title": "count",
+                  "type": "number"
+               },
+               "itemID": {
+                  "description": "Item ID",
+                  "example": ": \"B00H6V3BWA\"",
+                  "title": "itemID",
+                  "type": "string"
+               }
+            },
+            "required": [
+               "count",
+               "itemID"
+            ],
+            "type": "object"
+         },
+         "CreateItem": {
+            "properties": {
+               "description": {
+                  "description": "Description",
+                  "example": ": \"人が搭乗可能なロボットです。\"",
+                  "title": "description",
+                  "type": "string"
+               },
+               "name": {
+                  "description": "Name",
+                  "example": ": \"aRobot\"",
+                  "title": "name",
+                  "type": "string"
+               },
+               "thumbnailUrl": {
+                  "description": "Thumbnail 画像の URL",
+                  "example": ": \"https://shop.reference.dmm.dev/v1/items/B00H6V3BWA/thumbnail?size=640\"",
+                  "title": "thumbnailUrl",
+                  "type": "string"
+               }
+            },
+            "required": [
+               "description",
+               "name",
+               "thumbnailUrl"
+            ],
+            "type": "object"
+         },
+         "CreateOrder": {
+            "anyOf": [
+               {
+                  "properties": {
+                     "items": {
+                        "description": "Items",
+                        "items": {
+                           "properties": {
+                              "count": {
+                                 "description": "購入数",
+                                 "example": 1,
+                                 "minimum": 1,
+                                 "title": "count",
+                                 "type": "number"
+                              },
+                              "itemID": {
+                                 "description": "Item ID",
+                                 "example": ": \"B00H6V3BWA\"",
+                                 "title": "itemID",
+                                 "type": "string"
+                              }
+                           },
+                           "required": [
+                              "count",
+                              "itemID"
+                           ],
+                           "type": "object"
+                        },
+                        "title": "items",
+                        "type": "array"
+                     }
+                  },
+                  "required": [
+                     "items"
+                  ],
+                  "type": "object"
+               },
+               {
+                  "properties": {
+                     "cartID": {
+                        "description": "Cart ID",
+                        "example": ": \"xxxxxxxxxxx\"",
+                        "title": "cartID",
+                        "type": "string"
+                     }
+                  },
+                  "required": [
+                     "cartID"
+                  ],
+                  "type": "object"
+               }
+            ]
          },
          "InternalServerError": {
             "description": "InternalServerError",
@@ -49,6 +345,301 @@
             ],
             "type": "object"
          },
+         "Item": {
+            "properties": {
+               "description": {
+                  "description": "Description",
+                  "example": ": \"人が搭乗可能なロボットです。\"",
+                  "title": "description",
+                  "type": "string"
+               },
+               "id": {
+                  "description": "ID",
+                  "example": ": \"B00H6V3BWA\"",
+                  "title": "id",
+                  "type": "string"
+               },
+               "name": {
+                  "description": "Name",
+                  "example": ": \"aRobot\"",
+                  "title": "name",
+                  "type": "string"
+               },
+               "thumbnailUrl": {
+                  "description": "Thumbnail 画像の URL",
+                  "example": ": \"https://shop.reference.dmm.dev/v1/items/B00H6V3BWA/thumbnail?size=640\"",
+                  "title": "thumbnailUrl",
+                  "type": "string"
+               }
+            },
+            "required": [
+               "description",
+               "id",
+               "name",
+               "thumbnailUrl"
+            ],
+            "type": "object"
+         },
+         "Items": {
+            "properties": {
+               "items": {
+                  "description": "Chunk",
+                  "items": {
+                     "properties": {
+                        "description": {
+                           "description": "Description",
+                           "example": ": \"人が搭乗可能なロボットです。\"",
+                           "title": "description",
+                           "type": "string"
+                        },
+                        "id": {
+                           "description": "ID",
+                           "example": ": \"B00H6V3BWA\"",
+                           "title": "id",
+                           "type": "string"
+                        },
+                        "name": {
+                           "description": "Name",
+                           "example": ": \"aRobot\"",
+                           "title": "name",
+                           "type": "string"
+                        },
+                        "thumbnailUrl": {
+                           "description": "Thumbnail 画像の URL",
+                           "example": ": \"https://shop.reference.dmm.dev/v1/items/B00H6V3BWA/thumbnail?size=640\"",
+                           "title": "thumbnailUrl",
+                           "type": "string"
+                        }
+                     },
+                     "required": [
+                        "description",
+                        "id",
+                        "name",
+                        "thumbnailUrl"
+                     ],
+                     "type": "object"
+                  },
+                  "title": "items",
+                  "type": "array"
+               },
+               "pageInfo": {
+                  "description": "ページング情報",
+                  "properties": {
+                     "hasNextPage": {
+                        "description": "次ページが存在するか",
+                        "example": false,
+                        "title": "hasNextPage",
+                        "type": "boolean"
+                     },
+                     "nextCursor": {
+                        "description": "次ページ取得時に使う値",
+                        "example": null,
+                        "title": "nextCursor",
+                        "type": "string"
+                     }
+                  },
+                  "required": [
+                     "hasNextPage"
+                  ],
+                  "title": "pageInfo",
+                  "type": "object"
+               },
+               "totalCount": {
+                  "description": "総件数",
+                  "example": 1,
+                  "title": "totalCount",
+                  "type": "number"
+               }
+            },
+            "required": [
+               "items",
+               "pageInfo",
+               "totalCount"
+            ],
+            "type": "object"
+         },
+         "Order": {
+            "properties": {
+               "id": {
+                  "description": "ID",
+                  "example": ": \"B00H6V3BWA\"",
+                  "title": "id",
+                  "type": "string"
+               },
+               "items": {
+                  "description": "Items",
+                  "items": {
+                     "properties": {
+                        "count": {
+                           "description": "購入数",
+                           "example": 1,
+                           "minimum": 1,
+                           "title": "count",
+                           "type": "number"
+                        },
+                        "itemID": {
+                           "description": "Item ID",
+                           "example": ": \"B00H6V3BWA\"",
+                           "title": "itemID",
+                           "type": "string"
+                        }
+                     },
+                     "required": [
+                        "count",
+                        "itemID"
+                     ],
+                     "type": "object"
+                  },
+                  "title": "items",
+                  "type": "array"
+               },
+               "status": {
+                  "description": "Status",
+                  "enum": [
+                     "Accounting",
+                     "Canceled",
+                     "Canceling",
+                     "Purchased"
+                  ],
+                  "title": "status",
+                  "type": "string"
+               }
+            },
+            "required": [
+               "id",
+               "items",
+               "status"
+            ],
+            "type": "object"
+         },
+         "OrderItem": {
+            "properties": {
+               "count": {
+                  "description": "購入数",
+                  "example": 1,
+                  "minimum": 1,
+                  "title": "count",
+                  "type": "number"
+               },
+               "itemID": {
+                  "description": "Item ID",
+                  "example": ": \"B00H6V3BWA\"",
+                  "title": "itemID",
+                  "type": "string"
+               }
+            },
+            "required": [
+               "count",
+               "itemID"
+            ],
+            "type": "object"
+         },
+         "OrderStatus": {
+            "enum": [
+               "Accounting",
+               "Canceled",
+               "Canceling",
+               "Purchased"
+            ],
+            "type": "string"
+         },
+         "Orders": {
+            "properties": {
+               "items": {
+                  "description": "Chunk",
+                  "items": {
+                     "properties": {
+                        "id": {
+                           "description": "ID",
+                           "example": ": \"B00H6V3BWA\"",
+                           "title": "id",
+                           "type": "string"
+                        },
+                        "items": {
+                           "description": "Items",
+                           "items": {
+                              "properties": {
+                                 "count": {
+                                    "description": "購入数",
+                                    "example": 1,
+                                    "minimum": 1,
+                                    "title": "count",
+                                    "type": "number"
+                                 },
+                                 "itemID": {
+                                    "description": "Item ID",
+                                    "example": ": \"B00H6V3BWA\"",
+                                    "title": "itemID",
+                                    "type": "string"
+                                 }
+                              },
+                              "required": [
+                                 "count",
+                                 "itemID"
+                              ],
+                              "type": "object"
+                           },
+                           "title": "items",
+                           "type": "array"
+                        },
+                        "status": {
+                           "description": "Status",
+                           "enum": [
+                              "Accounting",
+                              "Canceled",
+                              "Canceling",
+                              "Purchased"
+                           ],
+                           "title": "status",
+                           "type": "string"
+                        }
+                     },
+                     "required": [
+                        "id",
+                        "items",
+                        "status"
+                     ],
+                     "type": "object"
+                  },
+                  "title": "items",
+                  "type": "array"
+               },
+               "pageInfo": {
+                  "description": "ページング情報",
+                  "properties": {
+                     "hasNextPage": {
+                        "description": "次ページが存在するか",
+                        "example": false,
+                        "title": "hasNextPage",
+                        "type": "boolean"
+                     },
+                     "nextCursor": {
+                        "description": "次ページ取得時に使う値",
+                        "example": null,
+                        "title": "nextCursor",
+                        "type": "string"
+                     }
+                  },
+                  "required": [
+                     "hasNextPage"
+                  ],
+                  "title": "pageInfo",
+                  "type": "object"
+               },
+               "totalCount": {
+                  "description": "総件数",
+                  "example": 1,
+                  "title": "totalCount",
+                  "type": "number"
+               }
+            },
+            "required": [
+               "items",
+               "pageInfo",
+               "totalCount"
+            ],
+            "type": "object"
+         },
          "RefreshTokenRequest": {
             "properties": {
                "refresh_token": {
@@ -67,7 +658,7 @@
             "properties": {
                "email": {
                   "description": "Email",
-                  "example": "xxxx@github.com",
+                  "example": "abc@example.local",
                   "title": "email",
                   "type": "string"
                },
@@ -87,7 +678,7 @@
             "properties": {
                "email": {
                   "description": "Email",
-                  "example": "xxxx@github.com",
+                  "example": "abc@example.local",
                   "title": "email",
                   "type": "string"
                },
@@ -142,7 +733,7 @@
             "properties": {
                "email": {
                   "description": "Email",
-                  "example": "xxxx@github.com",
+                  "example": "abc@example.local",
                   "title": "email",
                   "type": "string"
                },
@@ -161,6 +752,52 @@
             "required": [
                "email",
                "nickname"
+            ],
+            "type": "object"
+         },
+         "UpdateCart": {
+            "type": "object"
+         },
+         "UpdateCartItem": {
+            "properties": {
+               "count": {
+                  "description": "購入数",
+                  "example": 1,
+                  "minimum": 1,
+                  "title": "count",
+                  "type": "number"
+               }
+            },
+            "required": [
+               "count"
+            ],
+            "type": "object"
+         },
+         "UpdateItem": {
+            "properties": {
+               "description": {
+                  "description": "Description",
+                  "example": ": \"人が搭乗可能なロボットです。\"",
+                  "title": "description",
+                  "type": "string"
+               },
+               "name": {
+                  "description": "Name",
+                  "example": ": \"aRobot\"",
+                  "title": "name",
+                  "type": "string"
+               },
+               "thumbnailUrl": {
+                  "description": "Thumbnail 画像の URL",
+                  "example": ": \"https://shop.reference.dmm.dev/v1/items/B00H6V3BWA/thumbnail?size=640\"",
+                  "title": "thumbnailUrl",
+                  "type": "string"
+               }
+            },
+            "required": [
+               "description",
+               "name",
+               "thumbnailUrl"
             ],
             "type": "object"
          },
@@ -960,7 +1597,7 @@
    },
    "servers": [
       {
-         "url": "https://api.fqdn/v1"
+         "url": "https://api.example.local/v1"
       },
       {
          "url": "http://127.0.0.1:4010"
@@ -968,10 +1605,10 @@
    ],
    "tags": [
       {
-         "name": "auth"
+         "name": "account"
       },
       {
-         "name": "account"
+         "name": "auth"
       },
       {
          "name": "health"
