@@ -1,7 +1,7 @@
 /**
  * Email
  *
- * @example "xxxx\u0040github.com"
+ * @example "abc\u0040example.local"
  */
 export type Email = string
 
@@ -30,3 +30,17 @@ export type AccessToken = string
  * @example "GEbRxBN...edjnXbL"
  */
 export type RefreshToken = string
+
+/**
+ * URL
+ *
+ * @example "https://www.example.local/"
+ */
+export type URL = string
+
+/**
+ * Integer
+ *
+ * @TJS-type integer
+ */
+export type Integer = number

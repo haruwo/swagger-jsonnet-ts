@@ -8,5 +8,17 @@ module.exports = (on, config) => {
 
   on('task', SwaggerValidation(config))
 
+  on('task', {
+    log (message) {
+      if (typeof message === 'object') {
+        console.dir(message, { depth: null })
+      } else {
+        console.log(message);
+      }
+
+      return null
+    }
+  })
+
   return config
 }

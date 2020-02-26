@@ -1,3 +1,4 @@
+/// <reference path="../support/index.ts" />
 // import function "add" from another TypeScript file
 import { add } from '../support/add'
 

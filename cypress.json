@@ -1,5 +1,10 @@
 {
   "defaultCommandTimeout": 3000,
   "supportFile": "cypress/support/index.ts",
-  "video": false
+  "ignoreTestFiles": "*.js",
+  "video": false,
+
+  "env": {
+    "swaggerFile": "build/openapi.json"
+  }
 }
